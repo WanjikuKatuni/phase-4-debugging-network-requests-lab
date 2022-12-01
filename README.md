@@ -63,11 +63,19 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+      checked console on network setting after form submission to find 500 internal server error
+      checked rails server log to check last request to came through, POST was not completed due to an unitialised name constant.
+      Toy was in plural - changed it
 
 - Update the number of likes for a toy
 
   - How I debugged:
+      checked console on network settings and found status code 204 no content. this is a syntax error which occurs when js is parsing code.
+      solution is to return JSON data in the response form the controller actions
+
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+      checked console on network settings and found status 404 not found code.
+      checled the rails server logs in the backend and added a new destroy route to handle the HTTPverb and path for the request
